@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support · Folio</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+<body data-page="support" data-requires-api="false">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">Folio</span>
+        <span class="brand-tag">A plain-text editor</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html">Editor</a>
+        <a href="notes.html">Notes</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="summarize.html">Summarize</a>
+        <a href="support.html" class="active">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section-head">
+      <div>
+        <span class="eyebrow">Section V</span>
+        <h1 class="display">Set things <em>up</em>.</h1>
+        <p class="lead">
+          One key, then you're done. Folio uses Groq's free API for the AI features — quiz generation and summarization. The editor itself works without a key.
+        </p>
+      </div>
+      <div class="section-head-meta">
+        <span>One-time setup</span>
+        <span>Local storage</span>
+      </div>
+    </section>
+
+    <div class="support-grid">
+
+      <aside class="support-toc">
+        <a href="#api">API Key</a>
+        <a href="#about">About</a>
+        <a href="#how">How it works</a>
+        <a href="#shortcuts">Shortcuts</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#troubleshoot">Troubleshooting</a>
+      </aside>
+
+      <div>
+
+        <section class="support-section" id="api">
+          <h2><em>API</em> key</h2>
+          <p>Get a free Groq key at <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a> — sign in, click "Create API Key", copy the value (it starts with <code>gsk_</code>), and paste it below.</p>
+
+          <div class="api-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <label style="margin: 0;">Status</label>
+              <span class="status-pill no" id="api-status">Not set</span>
+            </div>
+
+            <div class="field">
+              <label for="api-key">Groq API key</label>
+              <input type="password" id="api-key" placeholder="gsk_..." autocomplete="off" />
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <button class="btn accent" id="api-save">Save key</button>
+              <button class="btn ghost" id="api-test">Test connection</button>
+              <button class="btn ghost" id="api-clear">Remove key</button>
+            </div>
+
+            <div id="api-test-out" style="margin-top: 16px; font-family: var(--mono); font-size: 12px; color: var(--ink-soft);"></div>
+          </div>
+        </section>
+
+        <hr class="hairline" />
+
+        <section class="support-section" id="about">
+          <h2><em>About</em></h2>
+          <p>Folio is a small four-room application: an editor for plain-text files, a notebook for side notes, an AI summarizer, and an AI quiz generator. Open a <code>.txt</code> file, work on it, and use the AI tools to think with it.</p>
+          <p>Everything runs in your browser. There's no account and no server.</p>
+        </section>
+
+        <hr class="hairline" />
+
+        <section class="support-section" id="how">
+          <h2>How it <em>works</em></h2>
+          <ul>
+            <li><strong>Editor</strong> — open any <code>.txt</code> (or <code>.md</code>) file with the <em>Open</em> button. Edit. Save back to disk with <em>Save .txt</em>. Your work auto-saves to this browser too, so you won't lose anything if you close the tab by accident.</li>
+            <li><strong>Notes</strong> — a separate scratchpad for thoughts that don't belong in your main document. Each note has a <em>Summarize</em> button.</li>
+            <li><strong>Quiz</strong> — paste any text or pull in the current document; the AI writes a 6–8 question multiple-choice quiz on it. Useful for studying.</li>
+            <li><strong>Summarize</strong> — same idea, but for distilling. Choose Short, Medium, or Long.</li>
+          </ul>
+          <p>The <em>Summarize →</em> and <em>Make a quiz →</em> buttons under the editor jump straight to those pages with your current document already loaded.</p>
+        </section>
+
+        <hr class="hairline" />
+
+        <section class="support-section" id="shortcuts">
+          <h2><em>Keyboard</em> shortcuts</h2>
+          <ul>
+            <li><code>Ctrl/Cmd + S</code> — save the current document as a <code>.txt</code> file</li>
+            <li><code>Ctrl/Cmd + O</code> — open a file</li>
+            <li><code>Tab</code> — insert two spaces (without losing focus)</li>
+          </ul>
+        </section>
+
+        <hr class="hairline" />
+
+        <section class="support-section" id="privacy">
+          <h2><em>Privacy</em></h2>
+          <p>Your API key, document, and notes live in your browser's <code>localStorage</code> on this device. They are not sent anywhere except, in the case of AI requests, directly to Groq's API.</p>
+          <p>Clearing your browser's site data will erase everything — there is no cloud backup. Save important documents to disk with the <em>Save .txt</em> button.</p>
+        </section>
+
+        <hr class="hairline" />
+
+        <section class="support-section" id="troubleshoot">
+          <h2><em>Troubleshooting</em></h2>
+          <ul>
+            <li><strong>"401 Unauthorized"</strong> — the key was rejected. Re-paste it carefully (no spaces, the whole <code>gsk_…</code> string).</li>
+            <li><strong>"429 Too Many Requests"</strong> — you've hit Groq's free-tier rate limit. Wait a minute and try again.</li>
+            <li><strong>"Could not parse quiz"</strong> — the model returned something malformed. Click <em>Generate quiz</em> again; it usually works on the second try.</li>
+            <li><strong>Document looks weird after opening</strong> — the file may not be UTF-8 plain text. Folio is built for <code>.txt</code> and <code>.md</code> files; binary formats like <code>.docx</code> or <code>.pdf</code> won't open correctly here.</li>
+            <li><strong>Hosted via <code>file://</code></strong> — should work for everything since requests go to Groq directly. If you hit issues, run a tiny local server (<code>python -m http.server</code>) from the project folder.</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    Made with <em>care</em> · Folio
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

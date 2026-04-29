@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summarize · Folio</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+<body data-page="summarize" data-requires-api="true">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">Folio</span>
+        <span class="brand-tag">A plain-text editor</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html">Editor</a>
+        <a href="notes.html">Notes</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="summarize.html" class="active">Summarize</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section-head">
+      <div>
+        <span class="eyebrow">AI · summarize</span>
+        <h1 class="display">Tighten any <em>passage</em>.</h1>
+        <p class="lead">
+          Paste in an article, an essay, a chapter, a meeting transcript — or pull in your current document. Pick a length. Receive a faithful summary, courtesy of Groq.
+        </p>
+      </div>
+      <div class="section-head-meta">
+        <span>Short · Medium · Long</span>
+        <span>Faithful prose</span>
+      </div>
+    </section>
+
+    <div class="sum-grid">
+
+      <div class="sum-panel">
+        <div class="sum-panel-header">
+          <div class="sum-panel-title">Source</div>
+          <button class="use-doc-link" id="sum-use-doc">Pull from document →</button>
+        </div>
+        <textarea id="sum-input" placeholder="Paste the text you'd like summarized…"></textarea>
+      </div>
+
+      <div class="sum-panel">
+        <div class="sum-panel-header">
+          <div class="sum-panel-title">Summary</div>
+          <div class="sum-panel-meta" id="sum-meta">Idle</div>
+        </div>
+        <div class="sum-output empty" id="sum-output">Your summary will appear here.</div>
+      </div>
+
+    </div>
+
+    <div class="sum-controls">
+      <div class="length-toggle" role="tablist" aria-label="Summary length">
+        <button data-len="short">Short</button>
+        <button data-len="medium" class="active">Medium</button>
+        <button data-len="long">Long</button>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button class="btn ghost" id="sum-clear">Clear</button>
+        <button class="btn accent" id="sum-run">Summarize</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    Made with <em>care</em> · Folio
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
