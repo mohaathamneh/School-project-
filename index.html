@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Folio · A plain-text editor</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body data-page="index" data-requires-api="false">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">Folio</span>
+        <span class="brand-tag">A plain-text editor</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="active">Editor</a>
+        <a href="pages/notes.html">Notes</a>
+        <a href="pages/quiz.html">Quiz</a>
+        <a href="pages/summarize.html">Summarize</a>
+        <a href="pages/support.html">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="editor-head">
+      <div>
+        <span class="eyebrow">Editor</span>
+        <h1 class="display">A clean room for <em>plain text</em>.</h1>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="toolbar-group">
+        <button class="tool-btn" id="btn-new" title="New document">New</button>
+        <button class="tool-btn" id="btn-open" title="Open .txt file">Open</button>
+        <button class="tool-btn accent" id="btn-save" title="Save as .txt">Save .txt</button>
+      </div>
+
+      <div class="toolbar-group grow">
+        <input type="text" class="filename-input" id="filename" placeholder="untitled.txt" autocomplete="off" spellcheck="false" />
+      </div>
+
+      <div class="toolbar-group">
+        <button class="tool-btn" id="btn-font-down" title="Smaller text" aria-label="Smaller text">A−</button>
+        <span class="font-size-display" id="font-size">17</span>
+        <button class="tool-btn" id="btn-font-up" title="Larger text" aria-label="Larger text">A+</button>
+      </div>
+
+      <input type="file" id="file-input" accept=".txt,text/plain,.md,.markdown,text/markdown" style="display:none" />
+    </div>
+
+    <!-- The paper sheet -->
+    <div class="sheet">
+      <textarea
+        id="editor"
+        placeholder="Start typing, or open a .txt file…"
+        spellcheck="true"
+        autocomplete="off"
+        autocorrect="off"
+      ></textarea>
+    </div>
+
+    <!-- Stats / status footer -->
+    <div class="stats-bar">
+      <div class="stats-group">
+        <span class="stat"><b id="stat-words">0</b>words</span>
+        <span class="stat"><b id="stat-chars">0</b>characters</span>
+        <span class="stat"><b id="stat-lines">0</b>lines</span>
+      </div>
+      <div class="save-status" id="save-status">Empty</div>
+    </div>
+
+    <!-- AI quick actions -->
+    <div class="editor-ai">
+      <span class="editor-ai-label">AI on this document</span>
+      <button class="btn ghost" id="ai-summarize">Summarize →</button>
+      <button class="btn ghost" id="ai-quiz">Make a quiz →</button>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    Made with <em>care</em> · Folio
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
