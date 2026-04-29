@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes · Folio</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+<body data-page="notes" data-requires-api="false">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">Folio</span>
+        <span class="brand-tag">A plain-text editor</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html">Editor</a>
+        <a href="notes.html" class="active">Notes</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="summarize.html">Summarize</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section-head">
+      <div>
+        <span class="eyebrow">Side notes</span>
+        <h1 class="display"><em>Notes</em> &amp; jottings.</h1>
+        <p class="lead">
+          Quick thoughts that don't belong in your main document. Each note can be summarized by the AI when you'd like a distillation.
+        </p>
+      </div>
+      <div class="section-head-meta">
+        <span>Stored in this browser</span>
+        <span>Newest first</span>
+      </div>
+    </section>
+
+    <div class="note-editor">
+      <input type="text" id="note-title" placeholder="A title — optional" />
+      <textarea id="note-body" placeholder="Write your note here…"></textarea>
+      <div class="note-actions">
+        <button class="btn ghost" id="note-clear">Clear</button>
+        <button class="btn" id="note-save">Save note</button>
+      </div>
+    </div>
+
+    <div class="saved-header">
+      <h2>Your <em>notebook</em></h2>
+      <span class="eyebrow" style="margin: 0;">Newest first</span>
+    </div>
+
+    <ul class="notes-list" id="notes-list"></ul>
+    <div class="empty-state" id="notes-empty">No notes yet. Write one above.</div>
+
+  </main>
+
+  <footer class="site-footer">
+    Made with <em>care</em> · Folio
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
